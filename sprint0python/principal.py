@@ -1,9 +1,9 @@
-from fibonacci import funcion_fibonacci
+from fibonacci2 import funcion_fibonacci2
 
-num = int(input("Introduzca número: "))
+num2 = int(input("Introduzca número: "))
 
 print()
 
-print(funcion_fibonacci(num))
+print(funcion_fibonacci2(num2))
 
 print()
