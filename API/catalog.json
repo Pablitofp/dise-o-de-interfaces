@@ -1,1 +1,27 @@
-
+[
+  {
+    "name" : "Harry Potter y la piedra filosofal",
+    "description" : "Primera película de Harry Potter",
+    "immage_url" : "https://raw.githubusercontent.com/Pablitofp/dise-o-de-interfaces/main/ELEMENTO%201.jpg"  
+  },
+  {
+    "name" : "Harry Potter y la cámara de los secretos",
+    "description" : "Segunda película de Harry Potter",
+    "immage_url" : "https://raw.githubusercontent.com/Pablitofp/dise-o-de-interfaces/main/ELEMENTO%202.jpg"  
+  },
+  {
+    "name" : "Harry Potter y el prisionero de Azkaban",
+    "description" : "Tercera película de Harry Potter",
+    "immage_url" : "https://raw.githubusercontent.com/Pablitofp/dise-o-de-interfaces/main/ELEMENTO%203.jpg"  
+  },
+  {
+    "name" : "Harry Potter y el cáliz de fuego",
+    "description" : "Cuarta película de Harry Potter",
+    "immage_url" : "https://raw.githubusercontent.com/Pablitofp/dise-o-de-interfaces/main/ELEMENTO%204.jpg"  
+  },
+  {
+    "name" : "Harry Potter y la Orden del Fénix",
+    "description" : "Quinta película de Harry Potter",
+    "immage_url" : "https://raw.githubusercontent.com/Pablitofp/dise-o-de-interfaces/main/ELEMENTO%205.jpg"  
+  }
+]
