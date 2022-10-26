@@ -2,6 +2,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from cell import Cell
+from acerca_de import AcercaDe
 
 class MainWindow(Gtk.Window):
     flowbox = Gtk.FlowBox()
@@ -24,7 +25,7 @@ class MainWindow(Gtk.Window):
         scrolled = Gtk.ScrolledWindow() 
         scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         scrolled.add(self.flowbox)
-        self.add(scrolled)
+        #self.add(scrolled)
         
         #Añades la información de cada elemento de la lista json en celdas
         for item in data_source: 
@@ -33,3 +34,28 @@ class MainWindow(Gtk.Window):
         
         #Ubica inicialmente en el centro de la pantalla    
         self.set_position(Gtk.WindowPosition.CENTER)
+        
+        
+        
+        #Creación de la barra superior de Menú y submenú
+        menu = Gtk.MenuBar()
+        
+        filemenu = Gtk.Menu()
+        filem = Gtk.MenuItem("Ayuda")
+        filem.set_submenu(filemenu)
+        
+        acerca_de = Gtk.MenuItem("Acerca de")
+        acerca_de.connect("button-release-event", self.on_click)
+        filemenu.append(acerca_de)
+        
+        menu.append(filem)
+        
+        vbox = Gtk.VBox(False, 2)
+        vbox.pack_start(menu, False, False, 0)
+        vbox.pack_start(scrolled, True, True, 0)
+        self.add(vbox)
+    
+    #Llamando a la clase AcercaDe para que se abra su ventana emergente cuando se haga click sobre "Acerca de"
+    def on_click(self, widget, event):
+        acerca = AcercaDe() 
+        acerca.show_all()
