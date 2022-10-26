@@ -1,6 +1,6 @@
-
 import gi
 import requests, threading, shutil
+from pop_up_window import PopUpWindow
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib
 from window import MainWindow
@@ -10,7 +10,8 @@ class LoadWindow(Gtk.Window):
     spinner = Gtk.Spinner()
     box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL, spacing = 20)
     
-    def __init__(self):
+    #Creación pantalla de carga con un spinner y un label
+    def __init__(self): 
         super().__init__(title = "")
         self.connect("destroy", Gtk.main_quit)
         self.set_border_width(60)
@@ -23,7 +24,8 @@ class LoadWindow(Gtk.Window):
 
         self.launch_load()
         
-    def start_main_window(self, loaded_items_list):
+    #Cierre de la pantalla de carga y abriendo la MainWindow, una vez cargado los elementos del json
+    def start_main_window(self, loaded_items_list):  
         win = MainWindow(loaded_items_list)
         win.show_all()
         self.disconnect_by_func(Gtk.main_quit)
@@ -33,11 +35,13 @@ class LoadWindow(Gtk.Window):
         thread = threading.Thread(target = self.load_json, args=())
         thread.start()
         
-    def load_json(self):
+    #Extrae del catalog.json el nombre, descripción y url de la imagen, y crea una imagen temporal con la que crea una gtk.image
+    def load_json(self):  
         response = requests.get('https://raw.githubusercontent.com/Pablitofp/dise-o-de-interfaces/main/API/catalog.json')
         json_list = response.json()
         
-        result = []
+        #Lista donde se almacenan los datos de las imágenes (utilizando el json creado)
+        result = []  
         
         for json_item in json_list:
             name = json_item.get("name")
@@ -50,4 +54,5 @@ class LoadWindow(Gtk.Window):
             result.append({"name" : name, "description" : description, "gtk_image" : image})
         
         GLib.idle_add(self.start_main_window, result)
+    
             

@@ -18,11 +18,13 @@ class MainWindow(Gtk.Window):
         
         self.set_titlebar(header)
         
-        scrolled = Gtk.ScrolledWindow()
+        #Creamos un scroll para navegar por la ventana
+        scrolled = Gtk.ScrolledWindow() 
         scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         scrolled.add(self.flowbox)
         self.add(scrolled)
         
-        for item in data_source:
-            cell = Cell(item.get("name"), item.get("gtk_image"))
+        #Añades la información de cada elemento de la lista json en celdas
+        for item in data_source: 
+            cell = Cell(item.get("name"), item.get("gtk_image"), item.get("description"))
             self.flowbox.add(cell)
