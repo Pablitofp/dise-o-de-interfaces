@@ -16,13 +16,15 @@ class LoadWindow(Gtk.Window):
         self.connect("destroy", Gtk.main_quit)
         self.set_border_width(60)
         self.set_resizable(False)
-        self.spinner.props.active = True
-        
+        self.spinner.props.active = True        
         self.box.pack_start(self.label, False, False, 0)
         self.box.pack_start(self.spinner, False, False, 0)
         self.add(self.box)
 
         self.launch_load()
+        
+        #Ubica inicialmente en el centro de la pantalla
+        self.set_position(Gtk.WindowPosition.CENTER)
         
     #Cierre de la pantalla de carga y abriendo la MainWindow, una vez cargado los elementos del json
     def start_main_window(self, loaded_items_list):  

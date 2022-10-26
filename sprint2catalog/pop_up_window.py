@@ -8,12 +8,14 @@ class PopUpWindow(Gtk.Window):
     def __init__(self, image, name, label2):
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL, spacing = 20)
         super().__init__(title = "")
-        self.set_border_width(60)
+        self.set_border_width(10)
         self.set_resizable(False)
-        self.label = Gtk.Label(label = name)
-        
+        self.label = Gtk.Label(label = name)        
         
         box.pack_start(image, False, False, 0)
         box.pack_start(self.label, False, False, 0)
         box.pack_start(label2, False, False, 0)
         self.add(box)
+        
+        #Ubica inicialmente en el centro de la pantalla
+        self.set_position(Gtk.WindowPosition.CENTER)

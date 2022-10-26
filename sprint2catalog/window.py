@@ -9,8 +9,10 @@ class MainWindow(Gtk.Window):
     def __init__(self, data_source):
         super().__init__ (title = "Fotos")
         self.connect("destroy", Gtk.main_quit)
-        self.set_border_width(5)
-        self.set_default_size(400, 400)
+        self.set_border_width(20)
+        
+        #Define el tamaño de la ventana
+        self.set_default_size(1250, 300)
         
         header = Gtk.HeaderBar(title = "Harry Potter")
         header.set_subtitle("Mix")
@@ -28,3 +30,6 @@ class MainWindow(Gtk.Window):
         for item in data_source: 
             cell = Cell(item.get("name"), item.get("gtk_image"), item.get("description"))
             self.flowbox.add(cell)
+        
+        #Ubica inicialmente en el centro de la pantalla    
+        self.set_position(Gtk.WindowPosition.CENTER)
