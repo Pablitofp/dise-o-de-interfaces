@@ -20,7 +20,6 @@ public class CatalogActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(context, "Arrancando otra actividad...", Toast.LENGTH_LONG).show(); //Comprobación de que el botón funciona
                 Intent myIntent = new Intent(context, DetailActivity.class);
                 context.startActivity(myIntent);
             }
